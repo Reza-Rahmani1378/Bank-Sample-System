@@ -1,7 +1,7 @@
 package ir.maktab.bank.util;
 
 import ir.maktab.bank.domain.*;
-import ir.maktab.bank.domain.base.User;
+import ir.maktab.bank.domain.User;
 import ir.maktab.bank.domain.enumeration.UserType;
 import ir.maktab.bank.service.AccountService;
 import ir.maktab.bank.util.input.Input;
@@ -125,8 +125,9 @@ public class RunMenu {
         int pageSize = 5;
         for (int page = 0; ; ) {
             List<BankBranch> bankBranches = ApplicationContext.getBankBranchService().findAllPerPage(page, pageSize);
-            for (int index = 1; index < bankBranches.size(); index++) {
-                System.out.printf("%d %s", index, bankBranches.get(index - 1));
+            for (int index = 1; index <= bankBranches.size(); index++) {
+//                System.out.format("%d %s" , index , bankBranches.get(index -1).toString());
+                System.out.println(bankBranches.get(index - 1).toString());
             }
             int choice;
             if (page == 0) {
@@ -272,7 +273,6 @@ public class RunMenu {
                 .getEmployeeService().findAllByBranchId(activeBoss.getBranch());
         viewBranchEmployees(activeBoss);
 
-        System.out.println("enter id of employee you wanna remove :");
         id = new Input("enter id of employee you wanna remove :",Long.MAX_VALUE,0L).getInputLong();
         long finalId = id;
 
@@ -404,7 +404,7 @@ public class RunMenu {
 
     private static void customerMenu(Customer activeCustomer) {
         Menu menu = new Menu();
-        menu.setItems(new String[]{"Edit your profile", "Add/Edit second Password of Credit Card", "Transfer money to card", "Log out"}
+        menu.setItems(new String[]{"Edit your profile", "Add/Edit second Password of Credit Card", "Transfer money to card","Delete Account", "Log out"}
         );
         while (true) {
             menu.print();
@@ -420,9 +420,17 @@ public class RunMenu {
                     transferMoney(activeCustomer);
                     break;
                 case 4:
+                    deleteAccountCustomer(activeCustomer);
+                case 5:
                     return;
             }
         }
+
+    }
+
+    private static void deleteAccountCustomer(Customer activeCustomer) {
+        List<Account> accounts =
+                ApplicationContext.getAccountService().getAccountsByCustomerId(activeCustomer.getId());
 
     }
 

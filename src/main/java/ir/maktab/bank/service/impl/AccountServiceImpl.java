@@ -7,6 +7,7 @@ import ir.maktab.bank.repository.AccountRepository;
 import ir.maktab.bank.service.AccountService;
 
 import java.util.List;
+import java.util.Set;
 
 public class AccountServiceImpl extends BaseServiceImpl<Account, Long, AccountRepository> implements
         AccountService {
@@ -23,5 +24,10 @@ public class AccountServiceImpl extends BaseServiceImpl<Account, Long, AccountRe
     @Override
     public List<Account> findAllPerPage(int page, int size, BankBranch branch) {
         return repository.findAllPerPage(page , size , branch);
+    }
+
+    @Override
+    public List<Account> getAccountsByCustomerId(Long id) {
+        return repository.getAccountsByCustomerId(id);
     }
 }

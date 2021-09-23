@@ -1,6 +1,6 @@
 package ir.maktab.bank.util;
 
-import ir.maktab.bank.domain.base.User;
+import ir.maktab.bank.domain.User;
 
 public class SecurityContext {
 

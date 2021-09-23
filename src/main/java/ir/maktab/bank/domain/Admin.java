@@ -1,6 +1,5 @@
 package ir.maktab.bank.domain;
 
-import ir.maktab.bank.domain.base.User;
 import ir.maktab.bank.domain.enumeration.UserType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

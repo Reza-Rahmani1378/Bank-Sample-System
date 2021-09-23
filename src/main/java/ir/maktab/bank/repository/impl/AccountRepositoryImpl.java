@@ -10,6 +10,7 @@ import javax.persistence.EntityGraph;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Set;
 
 public class AccountRepositoryImpl extends BaseRepositoryImpl<Account, Long> implements AccountRepository {
 
@@ -50,5 +51,12 @@ public class AccountRepositoryImpl extends BaseRepositoryImpl<Account, Long> imp
 
         return ty.getResultList();
 
+    }
+
+    @Override
+    public List<Account> getAccountsByCustomerId(Long id) {
+        return entityManager.createQuery(
+                "from Account a where a.customer.id = : id",Account.class
+        ).setParameter("id",id).getResultList();
     }
 }

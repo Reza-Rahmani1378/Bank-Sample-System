@@ -194,11 +194,11 @@ public class Input {
 
     public  int intSetValue() {
 
-        System.out.println(str);
+        System.out.println(message);
         int value = scanner.nextInt();
         while (value < floorInt || value > ceilInt) {
             System.out.printf("The number must be more than %d and less than %d!\n", floorInt, ceilInt);
-            System.out.println(str);
+            System.out.println(message);
             value = scanner.nextInt();
         }
         return value;

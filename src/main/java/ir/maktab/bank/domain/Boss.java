@@ -1,25 +1,27 @@
 package ir.maktab.bank.domain;
 
-import ir.maktab.bank.domain.base.User;
 import ir.maktab.bank.domain.enumeration.UserType;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import java.sql.Date;
 
 @Entity
-@Table(name = Boss.TABLE_NAME)
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Boss extends User {
 
-    public static final String TABLE_NAME = "manager";
 
     @OneToOne(cascade = CascadeType.ALL)
     private BankBranch branch;
 
-    public Boss() {
-    }
 
     public Boss(String firstname, String lastname, String nationalCode,
                 Date birthday, String username, String password, UserType usertype, BankBranch branch) {
@@ -32,11 +34,10 @@ public class Boss extends User {
         super(firstname, lastname, nationalCode, birthday, username, password, usertype);
     }
 
-    public BankBranch getBranch() {
-        return branch;
-    }
-
-    public void setBranch(BankBranch branch) {
-        this.branch = branch;
+    @Override
+    public String toString() {
+        return "Boss{" +
+                "branch=" + branch +
+                '}';
     }
 }

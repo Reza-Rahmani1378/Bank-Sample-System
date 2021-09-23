@@ -54,7 +54,6 @@ public class BankBranch extends BaseEntity<Long> {
         return "BankBranch{" +
                 "branchCode='" + branchCode + '\'' +
                 ", branchName='" + branchName + '\'' +
-                ", boss=" + boss +
                 '}';
     }
 }

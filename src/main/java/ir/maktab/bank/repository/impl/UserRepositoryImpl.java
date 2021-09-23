@@ -1,7 +1,7 @@
 package ir.maktab.bank.repository.impl;
 
 import ir.maktab.bank.base.repository.impl.BaseRepositoryImpl;
-import ir.maktab.bank.domain.base.User;
+import ir.maktab.bank.domain.User;
 import ir.maktab.bank.repository.UserRepository;
 
 import javax.persistence.EntityManager;

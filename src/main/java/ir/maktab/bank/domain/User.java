@@ -1,4 +1,4 @@
-package ir.maktab.bank.domain.base;
+package ir.maktab.bank.domain;
 
 import ir.maktab.bank.base.domain.BaseEntity;
 import ir.maktab.bank.domain.enumeration.UserType;
